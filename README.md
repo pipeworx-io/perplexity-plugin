@@ -1,6 +1,6 @@
 # Pipeworx Perplexity Install Kit
 
-Connect Perplexity (Pro / Max / Enterprise plans) to live data from **1,423+ tools across 392+ packs** — SEC filings, USPTO patents, FRED economic data, FDA drug data, Census, EPA, ATTOM real estate, weather, and 384+ more.
+Connect Perplexity (Pro / Max / Enterprise plans) to live data from **2,325 tools across 555 packs** — SEC filings, USPTO patents, FRED economic data, FDA drug data, Census, EPA, ATTOM real estate, weather, and 547+ more.
 
 Backed by the [Pipeworx](https://pipeworx.io) MCP gateway at `gateway.pipeworx.io`.
 
@@ -38,7 +38,7 @@ Perplexity should call `ask_pipeworx`, which routes to `fred_get_series`, and re
 
 ## How it works
 
-The connector loads **17 meta-tools** from the Pipeworx gateway — not all 1,423 underlying tools. That's deliberate: dumping every tool definition into the context window burns tokens you'll never use.
+The connector loads **17 meta-tools** from the Pipeworx gateway — not all 2,325 underlying tools. That's deliberate: dumping every tool definition into the context window burns tokens you'll never use.
 
 Instead, Perplexity reaches for `ask_pipeworx` or `discover_tools` and the gateway routes the request to the right pack at session time. You get the full catalog without paying for it up front.
 
