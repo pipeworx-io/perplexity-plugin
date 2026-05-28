@@ -5,7 +5,7 @@ When you click **Add a connector** in Perplexity (Settings → Connectors → Ad
 | Field | Value |
 |---|---|
 | Name | `Pipeworx` |
-| Description | `Live data gateway: 2,617 tools across 589 packs — SEC, FDA, FRED, Census, EPA, USPTO, ATTOM, weather, and more.` |
+| Description | `Live data gateway: 2,761 tools across 605 packs — SEC, FDA, FRED, Census, EPA, USPTO, ATTOM, weather, and more.` |
 | Server URL | `https://gateway.pipeworx.io/pipeworx-catalog/mcp` |
 | Transport | leave default (Streamable HTTP) |
 | Icon | leave default — or upload `assets/icon.png` from this repo when available |
