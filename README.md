@@ -1,21 +1,19 @@
-# Pipeworx Perplexity Install Kit
+# Pipeworx for Perplexity
 
-Connect Perplexity (Pro / Max / Enterprise plans) to live data from **2,935 tools across 649 packs** — SEC filings, USPTO patents, FRED economic data, FDA drug data, Census, EPA, ATTOM real estate, weather, and 641+ more.
-
-Backed by the [Pipeworx](https://pipeworx.io) MCP gateway at `gateway.pipeworx.io`.
+Give Perplexity one MCP that reaches **2,972 live-data tools across 650 sources** — SEC filings, USPTO patents, FRED, Census, FDA, EPA, USAspending, Polymarket, Zillow, weather, and 640+ more — answered with structured data + citations instead of prose.
 
 ## Requirements
 
-- Perplexity **Pro, Max, or Enterprise** plan (custom MCP connectors are not available on the Free tier)
+- Perplexity **Pro, Max, or Enterprise** plan (custom MCP connectors are not available on Free)
 - Custom connector feature enabled in Settings (shipped 2026-03-13)
 
 ## Install
 
-Perplexity adds custom MCP servers through the in-app UI rather than a manifest file. There's no public marketplace submission yet — every install is user-pasted.
+Perplexity adds custom MCP servers through the in-app UI; there's no marketplace submission yet — every install is user-pasted.
 
-**Step 1.** In Perplexity, go to **Settings → Connectors → Add a connector → Custom MCP server**.
+**Step 1.** **Settings → Connectors → Add a connector → Custom MCP server**.
 
-**Step 2.** Fill in the fields from [`CONNECTOR_CONFIG.md`](./CONNECTOR_CONFIG.md). Short version:
+**Step 2.** Fill in:
 
 | Field | Value |
 |---|---|
@@ -24,47 +22,70 @@ Perplexity adds custom MCP servers through the in-app UI rather than a manifest 
 | Transport | default (Streamable HTTP) |
 | Auth | none (anonymous tier) |
 
-**Step 3.** Save. The connector should show **Connected** with ~17 tools available.
+**Step 3.** Save. Connector should show **Connected** with ~17 tools.
 
-**Step 4. (Recommended)** Open the Space you want Pipeworx active in and paste the contents of [`space-instructions.md`](./space-instructions.md) into its **Custom instructions** field. This teaches Perplexity when to reach for `ask_pipeworx` / `discover_tools` instead of hand-writing facts.
+**Step 4. (Recommended)** Paste [`space-instructions.md`](./space-instructions.md) into the **Custom instructions** field of any Space where you want Pipeworx active. This teaches Perplexity when to reach for `ask_pipeworx` / `discover_tools` instead of hand-writing facts.
+
+Full field reference: [`CONNECTOR_CONFIG.md`](./CONNECTOR_CONFIG.md).
+
+## Try it
+
+After install, ask Perplexity in a connected Space:
+
+| Ask | What it triggers |
+|---|---|
+| *"What just happened to Apple?"* | `sec_8k_recent` → SEC 8-K events classified by severity |
+| *"Spread between Polymarket and Kalshi on the next Fed decision?"* | `polymarket_kalshi_spread` → live cross-venue mispricing |
+| *"Overdue Phase 3 readouts at Moderna?"* | `pharma_pipeline_catalysts` → biotech catalyst calendar |
+| *"DoD cybersecurity contracts this week?"* | `usa_award_search` → sub-second USAspending mirror |
+| *"Median home value and renter share in Lubbock, TX?"* | `housing_market_snapshot` + `housing_metro_demand` |
+| *"Unemployment rate last month?"* | `fred_get_series` → official FRED data |
+
+Perplexity picks the right tool via `ask_pipeworx`. Every response carries `pipeworx://` citations.
+
+## How it loads light
+
+The connector exposes **17 meta-tools**, not 2,972 — `ask_pipeworx({question})` and friends route at runtime so you get the full catalog without paying the context tax.
+
+## Free tier + signup
+
+100 calls/day anonymous, IP-bound. [Sign up free in 10s via GitHub](https://pipeworx.io/signup?via=perplexity_plugin) for 2,000/day + a stable account.
 
 ## Verify after install
 
-Try a query in any Space using the connector:
+In a connected Space:
 
 > What was the unemployment rate last month?
 
-Perplexity should call `ask_pipeworx`, which routes to `fred_get_series`, and return a real number with a citation.
+You should see a real number with a `pipeworx://` citation.
 
-## How it works
+## What's loaded
 
-The connector loads **17 meta-tools** from the Pipeworx gateway — not all 2,935 underlying tools. That's deliberate: dumping every tool definition into the context window burns tokens you'll never use.
-
-Instead, Perplexity reaches for `ask_pipeworx` or `discover_tools` and the gateway routes the request to the right pack at session time. You get the full catalog without paying for it up front.
-
-The loaded meta-tools:
-
-- **`ask_pipeworx`** — natural-language router.
-- **`discover_tools`** — top-20 most relevant tools for a task, with full schemas.
-- **`entity_profile`**, **`recent_changes`**, **`compare_entities`**, **`resolve_entity`** — fan-out across multiple packs in one call.
-- **`validate_claim`** — fact-check claims against SEC XBRL. Returns a verdict + citation.
+- **`ask_pipeworx`** — natural-language router across all 650 packs.
+- **`discover_tools`** — top-20 relevant tools for a task, with full schemas.
+- **`entity_profile`** / **`compare_entities`** / **`recent_changes`** / **`resolve_entity`** — fan-out across multiple packs in one call.
+- **`validate_claim`** — fact-check claims against SEC XBRL.
 - **`remember`** / **`recall`** / **`forget`** — persistent memory across sessions.
-- **`list_packs`**, **`search_packs`**, **`get_pack_tools`**, **`get_connection_config`**, **`get_platform_status`**, **`search_mcp_directory`** — browse the catalog.
+- **`list_packs`** / **`search_packs`** / **`get_pack_tools`** / **`get_connection_config`** / **`get_platform_status`** / **`search_mcp_directory`** — browse the catalog.
 
-## Higher rate limits
+## Bring your own key
 
-The default config runs on the anonymous tier (50 calls/day per IP). For higher limits (500/day BYO, 2,000/day OAuth, or unlimited paid), [sign up at pipeworx.io](https://pipeworx.io) and add an `X-API-Key` header in the connector's Headers section with your Pipeworx API key.
+For BYO-tier (500/day) or OAuth (2,000/day), add an `X-API-Key` header in the connector's Headers section.
 
 ## Scope: Individual vs Organization
 
-When adding the connector, Perplexity asks whether the connector is **Individual** (private to you) or **Organization** (admins can share org-wide). Pick Organization if you want every member of your Perplexity workspace to see Pipeworx tools without re-adding the connector.
+When adding the connector, Perplexity asks whether it's **Individual** (private to you) or **Organization** (admins can share org-wide). Pick Organization if you want every Perplexity workspace member to see Pipeworx tools without re-adding it.
 
 ## Links
 
 - Gateway: https://gateway.pipeworx.io
-- Stack guide: https://pipeworx.io/stack
+- Status: https://pipeworx.io/status
 - Source: https://github.com/pipeworx-io/pipeworx
 
 ## License
 
 MIT
+
+---
+
+⭐ Star if you'd use this — helps other Perplexity users discover it.
