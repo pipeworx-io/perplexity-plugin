@@ -61,7 +61,7 @@ You should see a real number with a `pipeworx://` citation.
 
 ## What's loaded
 
-- **`ask_pipeworx`** — natural-language router across all 650 packs.
+- **`ask_pipeworx`** — natural-language router across all 725 packs.
 - **`discover_tools`** — top-20 relevant tools for a task, with full schemas.
 - **`entity_profile`** / **`compare_entities`** / **`recent_changes`** / **`resolve_entity`** — fan-out across multiple packs in one call.
 - **`validate_claim`** — fact-check claims against SEC XBRL.
