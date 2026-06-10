@@ -49,7 +49,7 @@ The connector exposes **~26 meta-tools**, not all 3,300+ — `ask_pipeworx({ques
 
 ## Free tier + signup
 
-100 calls/day anonymous, IP-bound. [Sign up free in 10s via GitHub](https://pipeworx.io/signup?via=perplexity_plugin) for 2,000/day + a stable account.
+100 calls/day anonymous, IP-bound. [Sign up free in 10s via GitHub](https://pipeworx.io/signup?via=perplexity_plugin) for 200/day + a stable account.
 
 ## Verify after install
 
@@ -70,7 +70,7 @@ You should see a real number with a `pipeworx://` citation.
 
 ## Bring your own key
 
-For BYO-tier (500/day) or OAuth (2,000/day), add an `X-API-Key` header in the connector's Headers section.
+For BYO-tier (200/day) or Sign in (200/day), add an `X-API-Key` header in the connector's Headers section.
 
 ## Scope: Individual vs Organization
 

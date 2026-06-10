@@ -17,4 +17,4 @@ Routing rules:
 
 Persistent memory across sessions: `remember`, `recall`, `forget`.
 
-Higher rate limits (anonymous = 50/day, BYO = 500/day, OAuth = 2,000/day, Paid = unlimited): https://pipeworx.io.
+Higher rate limits (anonymous = 50/day, BYO = 200/day, OAuth = 200/day, Paid = unlimited): https://pipeworx.io.
