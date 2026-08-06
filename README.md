@@ -1,6 +1,6 @@
 # Pipeworx for Perplexity
 
-Give Perplexity one MCP that reaches **5,000+ live-data tools across 1,300+ sources** — SEC filings, USPTO patents, FRED, Census, FDA, EPA, USAspending, Polymarket, Zillow, weather, and 1,290+ more — answered with structured data + citations instead of prose.
+Give Perplexity one MCP that reaches **5,407+ live-data tools across 1403+ sources** — SEC filings, USPTO patents, FRED, Census, FDA, EPA, USAspending, Polymarket, Zillow, weather, and 1395+ more — answered with structured data + citations instead of prose.
 
 ## Requirements
 
