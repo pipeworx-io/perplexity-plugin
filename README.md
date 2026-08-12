@@ -1,6 +1,6 @@
 # Pipeworx for Perplexity
 
-Give Perplexity one MCP that reaches **5,501+ live-data tools across 1,441+ sources** — SEC filings, USPTO patents, FRED, Census, FDA, EPA, USAspending, Polymarket, Zillow, weather, and 1433+ more — answered with structured data + citations instead of prose.
+Give Perplexity one MCP that reaches **5,501+ live-data tools across 1,441+ sources** — SEC filings, USPTO patents, FRED, Census, FDA, EPA, USAspending, Polymarket, Zillow, weather, and 1,433+ more — answered with structured data + citations instead of prose.
 
 ## Requirements
 
@@ -45,7 +45,7 @@ Perplexity picks the right tool via `ask_pipeworx`. Every response carries `pipe
 
 ## How it loads light
 
-The connector exposes **~26 meta-tools**, not all 5,000+ — `ask_pipeworx({question})` and friends route at runtime so you get the full catalog without paying the context tax.
+The connector exposes **~31 meta-tools**, not all 5,501+ — `ask_pipeworx({question})` and friends route at runtime so you get the full catalog without paying the context tax.
 
 ## Free tier + signup
 
