@@ -5,7 +5,7 @@ When you click **Add a connector** in Perplexity (Settings → Connectors → Ad
 | Field | Value |
 |---|---|
 | Name | `Pipeworx` |
-| Description | `Live data gateway: 5,407+ tools across 1403+ sources — SEC, FDA, FRED, Census, EPA, USPTO, ATTOM, weather, and more.` |
+| Description | `Live data gateway: 5,501+ tools across 1,441+ sources — SEC, FDA, FRED, Census, EPA, USPTO, ATTOM, weather, and more.` |
 | Server URL | `https://gateway.pipeworx.io/pipeworx-catalog/mcp` |
 | Transport | leave default (Streamable HTTP) |
 | Icon | leave default — or upload `assets/icon.png` from this repo when available |
@@ -16,7 +16,7 @@ For higher rate limits, add a header:
 
 | Header name | Value |
 |---|---|
-| `X-API-Key` | your Pipeworx API key (free account 200/day, free account 200/day, Paid unlimited) — get one at https://pipeworx.io |
+| `X-API-Key` | your Pipeworx API key (BYO key 200/day, free account 200/day, Paid unlimited) — get one at https://pipeworx.io |
 
 After saving, the connector should show **Connected** with ~26 tools visible. Try a query in any Space:
 
