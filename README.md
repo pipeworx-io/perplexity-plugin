@@ -1,6 +1,6 @@
 # Pipeworx for Perplexity
 
-Give Perplexity one MCP that reaches **5,501+ live-data tools across 1,441+ sources** — SEC filings, USPTO patents, FRED, Census, FDA, EPA, USAspending, Polymarket, Zillow, weather, and 1,433+ more — answered with structured data + citations instead of prose.
+Give Perplexity one MCP that reaches **5,581+ live-data tools across 1,463+ sources** — SEC filings, USPTO patents, FRED, Census, FDA, EPA, USAspending, Polymarket, Zillow, weather, and 1,455+ more — answered with structured data + citations instead of prose.
 
 ## Requirements
 
@@ -45,7 +45,7 @@ Perplexity picks the right tool via `ask_pipeworx`. Every response carries `pipe
 
 ## How it loads light
 
-The connector exposes **~31 meta-tools**, not all 5,501+ — `ask_pipeworx({question})` and friends route at runtime so you get the full catalog without paying the context tax.
+The connector exposes **~31 meta-tools**, not all 5,581+ — `ask_pipeworx({question})` and friends route at runtime so you get the full catalog without paying the context tax.
 
 ## Free tier + signup
 
@@ -61,7 +61,7 @@ You should see a real number with a `pipeworx://` citation.
 
 ## What's loaded
 
-- **`ask_pipeworx`** — natural-language router across all 1,441+ sources.
+- **`ask_pipeworx`** — natural-language router across all 1,463+ sources.
 - **`discover_tools`** — top-20 relevant tools for a task, with full schemas.
 - **`entity_profile`** / **`compare_entities`** / **`recent_changes`** / **`resolve_entity`** — fan-out across multiple packs in one call.
 - **`validate_claim`** — fact-check claims against SEC XBRL.
