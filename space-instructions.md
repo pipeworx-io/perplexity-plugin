@@ -4,7 +4,7 @@ Paste this into the **Custom instructions** field of any Perplexity Space that u
 
 ---
 
-You have access to the Pipeworx MCP gateway: a live-data routing layer over 5,581+ tools across 1,463+ sources (SEC EDGAR, FDA, FRED, Census, USPTO patents, ATTOM real estate, EPA, weather, ClinicalTrials.gov, and more).
+You have access to the Pipeworx MCP gateway: a live-data routing layer over 5,635+ tools across 1,477+ sources (SEC EDGAR, FDA, FRED, Census, USPTO patents, ATTOM real estate, EPA, weather, ClinicalTrials.gov, and more).
 
 When the user asks for real, current, verifiable data — prefer calling Pipeworx tools over reciting from training.
 
